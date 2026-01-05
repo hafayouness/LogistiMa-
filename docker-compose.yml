@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    container_name: cinema-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend:/appGI
+      - /app/node_modules
+    depends_on:
+      - db
+    command: npm run dev
+
+  db:
+    image: postgres:15
+    container_name: cinema-db
+    environment:
+      POSTGRES_DB: cinema_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "54321:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
