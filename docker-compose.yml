@@ -76,7 +76,6 @@ services:
       - logistima_network
     command: npm run dev
 
-  # Worker Service (Background Jobs)
   worker:
     build:
       context: .
