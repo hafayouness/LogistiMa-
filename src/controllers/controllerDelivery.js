@@ -29,7 +29,6 @@ export const getDeliveries = async (req, res) => {
   }
 };
 
-/* READ ONE */
 export const getDeliveryById = async (req, res) => {
   try {
     const cacheKey = `delivery:${req.params.id}`;
@@ -46,7 +45,6 @@ export const getDeliveryById = async (req, res) => {
   }
 };
 
-/* ASSIGN DRIVER MANUALLY */
 export const assignDriver = async (req, res) => {
   try {
     const { driverId } = req.body;
@@ -67,7 +65,6 @@ export const assignDriver = async (req, res) => {
   }
 };
 
-/* AUTO DISPATCH */
 export const autoDispatch = async (req, res) => {
   try {
     const result = await DispatcherService.autoDispatch(req.params.id);
@@ -82,7 +79,6 @@ export const autoDispatch = async (req, res) => {
   }
 };
 
-/* UPDATE STATUS */
 export const updateDeliveryStatus = async (req, res) => {
   try {
     const { status } = req.body;

@@ -99,7 +99,6 @@ export const createReceiptWorker = () => {
   );
 };
 
-// Gestion des événements des workers
 export const setupWorkerEvents = (worker, name) => {
   worker.on("completed", (job) => {
     console.log(`✅ ${name} job ${job.id} completed`);
